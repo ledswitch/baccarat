@@ -29,17 +29,19 @@ while True:
     if not (player_hand == 8 or player_hand == 9 or bank_hand == 8 or bank_hand == 9):
         if player_hand <= 5:
             third_card = choice(cards)
-            player_hand += third_card % 10
+            player_hand += third_card
             if bank_hand <= 2:
-                bank_hand += choice(cards) % 10
+                bank_hand += choice(cards)
             if bank_hand == 3 and third_card != 8:
-                bank_hand += choice(cards) % 10
+                bank_hand += choice(cards)
             if bank_hand == 4 and 2 <= third_card <= 7:
-                bank_hand += choice(cards) % 10
+                bank_hand += choice(cards)
             if bank_hand == 5 and 4 <= third_card <= 7:
-                bank_hand += choice(cards) % 10
+                bank_hand += choice(cards)
             if bank_hand == 6 and 6 <= third_card <= 7:
-                bank_hand += choice(cards) % 10
+                bank_hand += choice(cards)
+            player_hand %= 10
+            bank_hand %= 10
         print("After drawing rules: ")
         print(str(player_hand) + " player")
         print(str(bank_hand) + " banker")
@@ -61,6 +63,6 @@ while True:
             credit -= int(bet)
     else:
         print("Tie")
-        print("You win " + "$" + 8 * int(bet))
+        print("You win " + "$" + str(8 * int(bet)))
         credit += 8 * int(bet)
         tie = True
