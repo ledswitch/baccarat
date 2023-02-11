@@ -10,7 +10,7 @@ while True:
         break
     if not tie:
         bet = input("How much do you want to bet?")
-        if not bet.isnumeric() or int(bet) <= 0:
+        if not bet.isnumeric() or int(bet) <= 0 or bet > credit:
             print("Invalid Bet")
             continue
     else:
