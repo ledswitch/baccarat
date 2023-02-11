@@ -61,6 +61,6 @@ while True:
             credit -= int(bet)
     else:
         print("Tie")
-        print("You win " + "$" + 8 * bet)
+        print("You win " + "$" + 8 * int(bet))
         credit += 8 * int(bet)
         tie = True
