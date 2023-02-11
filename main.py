@@ -4,7 +4,7 @@ cards = [2, 3, 4, 5, 6, 7, 8, 9, 0, 0, 0, 0, 1]
 bet = 0
 tie = False
 while True:
-    print("You have $" + str(credit))
+    print("You have $" + "{:.2f}".format(credit))
     if credit <= 0:
         print("You have no credit left! Goodbye")
         break
@@ -29,17 +29,17 @@ while True:
     if not (player_hand == 8 or player_hand == 9 or bank_hand == 8 or bank_hand == 9):
         if player_hand <= 5:
             third_card = choice(cards)
-            player_hand += third_card
+            player_hand += third_card % 10
             if bank_hand <= 2:
-                bank_hand += choice(cards)
+                bank_hand += choice(cards) % 10
             if bank_hand == 3 and third_card != 8:
-                bank_hand += choice(cards)
+                bank_hand += choice(cards) % 10
             if bank_hand == 4 and 2 <= third_card <= 7:
-                bank_hand += choice(cards)
+                bank_hand += choice(cards) % 10
             if bank_hand == 5 and 4 <= third_card <= 7:
-                bank_hand += choice(cards)
+                bank_hand += choice(cards) % 10
             if bank_hand == 6 and 6 <= third_card <= 7:
-                bank_hand += choice(cards)
+                bank_hand += choice(cards) % 10
         print("After drawing rules: ")
         print(str(player_hand) + " player")
         print(str(bank_hand) + " banker")
@@ -63,4 +63,4 @@ while True:
         print("Tie")
         print("You win " + "$" + 8 * bet)
         credit += 8 * int(bet)
-        Tie = True
+        tie = True
